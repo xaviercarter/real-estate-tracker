@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<h2>Enter a New Deal</h2>
+<form action="/deals" method="POST">
+    <label>Address:
+        <input type="text" name="address">
+    </label><br>
+    <label>Year Built:
+        <input type="number" name="yearBuilt">
+    </label><br>
+    <label>Purchase Price
+        <input type="number" name="purchasePrice">
+    </label><br>
+    <label>Appraised Value
+        <input type="number" name="appraisedValue">
+    </label><br>
+    <label>Bedrooms
+        <input type="number" name="bedrooms">
+    </label><br>
+    <label>Baths
+        <input type="number" name="baths">
+    </label><br>
+    <label>Features (separate actors with commas):
+        <input type="text" name="features">
+    </label><br>
+    <button type="submit">Add Deal</button>
+</form>
+
+
+<%- include('../partials/footer') %>

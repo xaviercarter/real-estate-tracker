@@ -1,9 +1,23 @@
+/////////////////////////
+// import dependencies //
+/////////////////////////
+
 const express = require('express');
 const router = express.Router();
+const dealCtrl = require('../controllers/deals');
+
+
+/////////////////////////////
+// define router functions //
+/////////////////////////////
 
 /* GET deals create form. */
-router.get('/newdeal', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/new', dealCtrl.new);
 
+
+
+
+///////////////////////
+// export our models //
+///////////////////////
 module.exports = router;

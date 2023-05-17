@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+
+<table>
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Year<br>Built</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% deals.forEach(function(deal) { %>
+            <tr>
+                <td><%= deal.address %></td>
+                <td><%= deal.yearBuilt %></td>
+                
+            </tr>
+         <% }) %>
+    </tbody>
+</table>
+
+
+<%- include('../partials/footer') %>

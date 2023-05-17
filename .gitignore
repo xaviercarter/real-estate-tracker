@@ -1,0 +1,4 @@
+# add sens info
+.env
+# ignore node_modules
+node_modules

@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 const dealCtrl = require('../controllers/deals');
-
+const removeBlanks = require('../bin/rbMiddleware');
 
 
 /////////////////////////////
@@ -27,6 +27,11 @@ router.get('/:id', dealCtrl.show);
 
 // deleteOne deal by id
 router.delete('/:id', dealCtrl.deleteDeal);
+
+// find deal and redirect to edit form
+router.get('/edit/:id', dealCtrl.renderEdit)
+
+router.patch('/:id', removeBlanks, dealCtrl.updateDeal)
 
 ///////////////////////
 // export our models //

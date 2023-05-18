@@ -16,7 +16,7 @@
     </ul>
 </section>
 <section>
-    <a>Edit</a> ||
+    <a href="/deals/edit/<%= deal.id %>">Edit</a> ||
     <form action="/deals/<%= deal.id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
     </form>

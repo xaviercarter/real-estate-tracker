@@ -3,12 +3,13 @@
 /////////////////////////
 
 // import deal model
-const deal = require('../models/deal');
+
 const Deal = require('../models/deal');
 
 /////////////////////////////////
 // define controller functions //
 /////////////////////////////////
+
 function newDeal(req, res) {
     console.log('the new route has been hit');
     res.render('deals/new');
@@ -85,8 +86,8 @@ function show(req, res) {
 function deleteDeal(req, res) {
     
     Deal.findById(req.params.id)
-        // if the movie is found, we use a mongoose method to delete it
-        .then(movie => {
+        // if the deal is found, we use a mongoose method to delete it
+        .then(deal => {
             return deal.deleteOne()
         })
         // redirect to the index page after delete
@@ -103,6 +104,53 @@ function deleteDeal(req, res) {
         })
 }
 
+function renderEdit(req, res) {
+    console.log('these are the request parameters\n', req.params)
+    console.log('****** edit movie route was hit ******')
+    Deal.findById(req.params.id)
+        .then(deal => {
+            console.log('this is the deal in edit\n', deal)
+
+            res.render('deals/edit', {deal: deal})
+        })
+        .catch(err => {
+            console.log('=================err')
+            console.log(err)
+            console.log('====================')
+
+            return res.send('err finding deal, check the terminal')
+        })
+}
+
+function updateDeal(req, res) {
+    // splits a string by the commas and creates an array
+    req.body.features = req.body.features.split(',')
+    console.log('THIS IS REQ.BODY IN updateDeal -> after converting', req.body)
+    console.log('This is the id of the deal', req.params.id)
+
+    Deal.findById(req.params.id)
+        // then call a method to update the movie
+        .then(dealDoc => {
+            return dealDoc.updateOne(req.body)
+        })
+        // after saving the updated document, redirect to the show page
+        .then(deal => {
+            console.log('deal after the update', deal)
+            res.redirect(`/deals/${req.params.id}`)
+        })
+        // errors
+        .catch(err => {
+            console.log('=================err')
+            console.log(err)
+            console.log('====================')
+
+            return res.send('err finding deal, check the terminal')
+        })
+
+
+
+}
+
 
 
 ///////////////////////
@@ -114,5 +162,7 @@ module.exports = {
     index,
     show,
     deleteDeal,
+    renderEdit,
+    updateDeal,
 };
 

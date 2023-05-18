@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<h2>Update <%= deal.address %></h2>
+<form action="/deals/<%= deal.id%>?_method=PATCH" method="POST">
+    <label>Address:
+        <input type="text" name="address" value="<%= deal.address %>">
+    </label><br>
+
+    <label>Year Built:
+        <input type="number" name="yearBuilt" value="<%= deal.yearBuilt %>">
+    </label><br>
+    <label>Purchase Price
+        <input type="number" name="purchasePrice" value="<%= deal.purchasePrice %>">
+    </label><br>
+    <label>Appraised Value
+        <input type="number" name="appraisedValue" value="<%= deal.appraisedValue %>">
+    </label><br>
+    <label>Bedrooms
+        <input type="number" name="bedrooms" value="<%= deal.bedrooms %>">
+    </label><br>
+    <label>Baths
+        <input type="number" name="baths" value="<%= deal.baths %>">
+    </label><br>
+    <label>Features (separate actors with commas):
+        <input type="text" name="features" value="<%= deal.features %>">
+    </label><br>
+    <button type="submit">Update Deal</button>
+</form>
+
+<%- include('../partials/footer') %> 

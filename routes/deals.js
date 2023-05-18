@@ -22,7 +22,11 @@ router.get('/', dealCtrl.index);
 router.post('/', dealCtrl.create);
 
 
+// GET an individual deal using the id
+router.get('/:id', dealCtrl.show);
 
+// deleteOne deal by id
+router.delete('/:id', dealCtrl.deleteDeal);
 
 ///////////////////////
 // export our models //

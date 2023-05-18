@@ -3,6 +3,7 @@
 /////////////////////////
 
 // import deal model
+const deal = require('../models/deal');
 const Deal = require('../models/deal');
 
 /////////////////////////////////
@@ -28,7 +29,7 @@ function create (req, res) {
             console.log(dealDoc);
             console.log('===================');
         
-            return res.send(`Deal Created: ${dealDoc.title}`);
+            return res.redirect(`/deals/${dealDoc.id}`)
     })
     
     
@@ -63,6 +64,44 @@ function index(req, res) {
 
 }
 
+// takes the mongoDb id and finds the appropriate document
+function show(req, res) {
+    console.log('these are the request parameters\n', req.params)
+    Deal.findById(req.params.id)
+        .then(deal => {
+            console.log('this is the deal in show\n', deal)
+            res.render('deals/show', {deal: deal})
+        })
+        .catch(err => {
+            console.log('============err');
+            console.log(err);
+            console.log('============');
+        
+            return res.send('err creating, check the terminal');
+        })
+    
+}
+
+function deleteDeal(req, res) {
+    
+    Deal.findById(req.params.id)
+        // if the movie is found, we use a mongoose method to delete it
+        .then(movie => {
+            return deal.deleteOne()
+        })
+        // redirect to the index page after delete
+        .then(() => {
+            res.redirect('/deals')
+        })
+        
+        .catch(err => {
+            console.log('=================err')
+            console.log(err)
+            console.log('====================')
+
+            return res.send('could not find movie - DELETE')
+        })
+}
 
 
 
@@ -73,4 +112,7 @@ module.exports = {
     new: newDeal,
     create,
     index,
+    show,
+    deleteDeal,
 };
+

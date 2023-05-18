@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+
+<section>
+    <h1><%= deal.address %></h1>
+    <h3>Year Built: <%= deal.yearBuilt %></h3>
+    <h3>Purchase Price: <%= deal.purchasePrice %></h3>
+    <h3>Appraised Value: <%= deal.appraisedValue %></h3>
+    <h3>Bedrooms: <%= deal.bedrooms %></h3>
+    <h3>Baths: <%= deal.baths %></h3>
+    <h3>Features:</h3>
+    <ul>
+        <% deal.features.forEach(oneFeature => {%>
+            <li><%= oneFeature %></li>
+        <% }) %>
+    </ul>
+</section>
+<section>
+    <a>Edit</a> ||
+    <form action="/deals/<%= deal.id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+<%- include('../partials/footer') %>

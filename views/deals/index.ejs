@@ -4,7 +4,12 @@
     <thead>
         <tr>
             <th>Address</th>
-            <th>Year<br>Built</th>
+            <th>Year Built</th>
+            <th>Purchase Price</th>
+            <th>Appraised Value</th>
+            <th>Bedrooms</th>
+            <th>Baths</th>
+            <th>Features</th>
         </tr>
     </thead>
     <tbody>
@@ -12,6 +17,11 @@
             <tr>
                 <td><%= deal.address %></td>
                 <td><%= deal.yearBuilt %></td>
+                <td><%= deal.purchasePrice %></td>
+                <td><%= deal.appraisedValue %></td>
+                <td><%= deal.bedrooms %></td>
+                <td><%= deal.baths %></td>
+                <td><%= deal.features %></td>
                 
             </tr>
          <% }) %>

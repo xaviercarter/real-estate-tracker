@@ -18,7 +18,7 @@ const passport = require('passport');
 
 const indexRouter = require('./routes/index');
 const dealsRouter = require('./routes/deals');
-
+const reviewsRouter = require('./routes/reviews');
 const app = express();
 
 // view engine setup
@@ -50,7 +50,7 @@ app.use(function(req, res, next) {
 // registering routes
 app.use('/', indexRouter);
 app.use('/deals', dealsRouter);
-
+app.use('/', reviewsRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

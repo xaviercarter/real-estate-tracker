@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // ratingSchema
-const ratingSchema = new Schema({
+const reviewSchema = new Schema({
     content: {
       type: String,
       required: true
@@ -35,10 +35,11 @@ const dealSchema = new Schema({
     appraisedValue: Number,
     bedrooms: Number,
     baths: Number, 
-    features: [String]
+    features: [String],
+    reviews: [reviewSchema],
 }, {
     timestamps: true
-})
+});
 
 // compile schema into a model and export in one line by calling the modeal method that takes two arguments the capitalized name you want to use for the model and the schema
 module.exports = mongoose.model('Deal', dealSchema);

@@ -16,7 +16,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #EEBC72;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -34,7 +34,8 @@ body > main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #E8ECEB;
+  background-color: #FAF4F2;
+  background-image: url('/images/background2.png');
   padding: 20px;
   overflow-y: scroll;
 }
@@ -81,12 +82,13 @@ nav > a.active {
 }
 
 table {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 table thead th {
-  padding: 5px;
-  border-bottom: 2px solid #424748;
+  padding: 10px;
+  border-right: 2px solid #424748;
+  border-left: 2px solid #424748;
 }
 
 table td {

@@ -7,10 +7,18 @@
   <title>Real Estate Properties</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-<body>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/deals">All Deals</a>
-    <a href="/deals/new">New Deal</a>
-  </nav>
+
   
+
+  <nav>
+    <img src="/images/house.png">
+    <a href="/deals">All Deals</a>
+    <% if (user) { %>
+      <a href="/contractors/new">
+      Add Contractor</a>
+      <a href="/deals/new">Add Deal</a>
+      <a href="/logout">LOG OUT</a>
+    <% } else { %>
+      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <% } %>
+  </nav>

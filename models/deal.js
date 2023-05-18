@@ -4,6 +4,29 @@ const mongoose = require('mongoose');
 // shortcut to Shema class
 const Schema = mongoose.Schema;
 
+// ratingSchema
+const ratingSchema = new Schema({
+    content: {
+      type: String,
+      required: true
+    },
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+      default: 5
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    userName: String,
+    userAvatar: String
+  }, {
+    timestamps: true
+  });
+
 // create mongoose schema
 const dealSchema = new Schema({
     address: String,

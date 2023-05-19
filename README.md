@@ -2,13 +2,13 @@
 
 ## Screenshots
 
-Wireframe Sketch
+## Wireframe Sketch
 ![Alt text](images/sketch-wireframe.png)
 
-ERD
+## ERD
 ![Alt text](images/erd.png)
 
-Trello
+## Trello
 ![Alt text](images/trello.png)
 
 ## Technologies Used
